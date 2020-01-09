@@ -1,20 +1,4 @@
-$primary-color: #444;
-$secondary-color: #f5d93d;
-$show-home-image: true;
-$home-image: url(dist/img/background-image.jpg);
-$background-opacity: 0.9;
-
-@mixin easeout {
-  transition: all 1s ease-out;
-}
-
-@mixin background {
-  @if $show-home-image {
-    &#bg-img {
-      background: $home-image;
-    }
-  }
-}
+@import 'config';
 
 * {
   box-sizing: border-box;
@@ -24,6 +8,7 @@ $background-opacity: 0.9;
 
 body {
   @include background;
+  // background: url(../dist/img/background-image.jpg);
   background: $primary-color;
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
