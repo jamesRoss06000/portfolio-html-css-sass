@@ -1,6 +1,5 @@
 @import 'config';
 @import 'menu';
-@import 'mobile';
 
 * {
   box-sizing: border-box;
@@ -12,7 +11,7 @@ body {
   @include background;
   background: url('img/background-image.jpg');
   background: $primary-color;
-  color: #fff;
+  color: set-text-color($primary-color);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 }
@@ -33,7 +32,7 @@ h1, h2, h3 {
 }
 
 a {
-  color: white;
+  color: set-text-color($primary-color);
   text-decoration: none;
 }
 
@@ -49,7 +48,9 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%;
+  // The following calc funtion keeps the footer at the bottom
+  // fgooter height being 60px in this case
+  min-height: calc(100vh - 60px);
 
   .icons {
     margin-top: 1rem;
@@ -71,3 +72,47 @@ main {
     }
   }
 }
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas: 
+  'bioimage bio bio'
+  'job1 job2 job3';
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.bio-image {
+  grid-area: bioimage;
+  margin: auto;
+  border-radius: 50%;
+  border: solid 3px $secondary-color;
+}
+
+.bio {
+  grid-area: bio;
+}
+
+.job-1 {
+  grid-area: job1;
+}
+
+.job {
+  background: lighten($primary-color, 10);
+  padding: 0.5rem;
+  border-bottom: solid 3px $secondary-color;
+}
+
+#main-footer {
+  text-align: center;
+  background: darken($primary-color, 10);
+  padding: 1rem;
+  color: set-text-color($primary-color);
+  height: 60px;
+}
+
+@import 'mobile';
