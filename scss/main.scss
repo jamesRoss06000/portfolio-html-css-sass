@@ -9,7 +9,7 @@
 
 body {
   @include background;
-  // background: url(../dist/img/background-image.jpg);
+  background: url('img/background-image.jpg');
   background: $primary-color;
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
